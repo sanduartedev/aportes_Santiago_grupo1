@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/turnos/public/css/style.css'%}">    
+        {% block css %}{% endblock css %}
+      </head>
+    <div class="header2 bg-success-gradiant">
+      <div class="topbar">
+        <!-- Header 1 code -->
+        <nav class="navbar navbar-expand-lg h2-nav">
+          <a class="navbar-brand" href="{% url 'inicio' %}">Django Hospital</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header2" aria-controls="header2" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-menu"></span>
+          </button>
+          <div class="collapse navbar-collapse hover-dropdown" id="header2">
+               <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="btn rounded-pill btn-dark py-2 px-4"  href="{% url 'turnos' %}">Sacar Turno</a></li>
+              <li class="nav-item"><a class="btn rounded-pill btn-dark py-2 px-4" href="{% url 'login' %}">Loguearse</a></li>
+            </ul>
+          </div>
+        </nav>
+        <!-- End Header 1 code -->
+      </div>
+    </div>
+    <body>
+      </div>
+      <div id="content">
+      {% block content %} {% endblock %}
+      </div>
+    </body>
+    
+    <footer class="footer mt-auto py-5">
+      <div class="container text-muted">
+        <div class="row">
+          <div class="col-3">
+            <a href="{% url 'inicio' %}">
+              <img src="{% static 'img/django-logo.png'%}" alt="dj team" height=50vh>
+            </a>
+            <p class="legales">Django Hospital - Bajo licencia exclusiva de Dj team</p>
+          </div>
+          <div class="col-8 ">
+            <ul class="lista-institucional d-flex ">
+              <li><a href="/institucional/">Institucional</a></li>
+              <li><a href="/noticias/">Noticias</a></li>
+              <li><a href="">Registrese</a></li>
+              <li><a href="/faq/">FAQ</a></li>
+              <li><a href="/libro_de_quejas/">Libro de quejas</a></li>
+              <li><a href="/donde_estamos/">Cómo llegar</a></li>
+            </ul>
+          </div>
+          <div class="col-1">
+            <p class="float-end mb-1">
+              <a href="#"><i class="fa-solid fa-circle-up"></i></a>
+            </p>
+          </div>
+        </div>
+          
+      </div>
+    </footer>
+</html>

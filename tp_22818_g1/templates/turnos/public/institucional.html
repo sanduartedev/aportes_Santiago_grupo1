@@ -1,0 +1,36 @@
+{% extends './base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institucional</title>
+</head>
+<body>
+{% block content %}
+{%if personas%}
+    {% for persona in personas %}
+    {% if forloop.first%}<div class="row">{% endif %}
+    <div class="col-4">
+        <br>
+        <div class="card">
+            <h5 class="card-title text-center">{{persona.nombre}}</h5>
+            <img class="card-img-top" height="180" src="{% static '/img/'%}{{persona.foto}}" alt="{{persona.nombre}}">
+            <div class="card-body">
+                <h5 class="card-title text-muted text-center">{{persona.cargo}}</h5>
+            </div>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+
+{% endfor %}
+{% else %}
+<div class="alert alert-danger">No hay ningún empleado</div>
+{% endif %}
+<br>
+{% endblock %}
+</body>
+</html>

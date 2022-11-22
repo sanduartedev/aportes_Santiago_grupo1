@@ -1,0 +1,36 @@
+{% extends './base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+</head>
+<body>
+{% block content %}
+    <header>
+        <h1>Preguntas frecuentes</h1>
+    </header>
+    <main>
+        <h2>1.- ¿Qué es Django Hospital?</h2>
+        <h3>Es el sistema de medicina más novedoso del mundo</h3>
+        <br>
+        <h2>2.-¿Qué prestaciones se pueden facturar por el mes de Diciembre 2022?</h2>
+        <h3>Se deberá presentar la facturación correspondiente a las prestaciones efectivamente
+        brindadas bajo la modalidad a distancia y corresponderán a aquellos tratamientos esenciales
+        que no admitan interrupciones y donde la intervención sea necesaria para evitar la
+        concurrencia del beneficiario a instituciones asistenciales, evitando, de este modo, la
+        circulación de las personas y el riesgo de contagio de coronavirus COVID-19</h3>
+        {% if latest_question_list%}
+        <h4>Ayudanos a mejorar</h4>
+            {% for question in  latest_question_list%}
+            <li><a href="{% url "detail" question.id %} ">¿Te sirvió la información de la pregunta {{question.id}}?</a></li>
+            {% endfor %}
+        {% else %}
+        <p>No hay preguntas disponibles</p>
+        {% endif %}        
+    </main>
+    {% endblock %}
+</body>
+</html>

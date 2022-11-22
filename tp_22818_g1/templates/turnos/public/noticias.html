@@ -1,0 +1,12 @@
+{% extends './base.html' %}
+{% block content %}
+    {% for noticia in noticias %}
+        <div class="noticia">
+            <div class="date">
+                {{ noticia.published_date }}
+            </div>
+            <h2><a href="">{{ noticia.title }}</a></h2>
+            <p>{{ noticia.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
